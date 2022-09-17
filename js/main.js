@@ -194,7 +194,14 @@ function getAllPossibleCoordsRook(pieceCoord) {
 
 function getAllPossibleCoordsBishop(pieceCoord) {
     var res = []
-
+    const i = pieceCoord.i - 1
+    
+    for (var idx = pieceCoord.j + 1; i >= 0 && idx < 8; idx++) {
+        const coord = { i: i--, j: idx }
+        if (!isEmptyCell(coord)) break
+        res.push(coord)
+    }
+    // TODO: handle the 3 other diagonals 
     return res
 }
 
